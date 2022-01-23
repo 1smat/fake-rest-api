@@ -10,7 +10,12 @@ class UserController {
     )
     res.json(newUser.rows[0])
   }
-  async getUsers(req, res) {}
+  async getUsers(req, res) {
+    const users = await db.query(`
+      SELECT * FROM person
+    `)
+    res.json(users)
+  }
   async getOneUser(req, res) {}
   async updateUser(req, res) {}
   async deleteUser(req, res) {}
